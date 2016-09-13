@@ -25,7 +25,7 @@ class TableViewController: UITableViewController {
         
         arrayOfCellData = [cellData(cell: 1, text: "meal 1", image: UIImage(named: "meal1")),
             cellData(cell: 2, text: "meal 2", image: UIImage(named: "meal2")),
-            cellData(cell: 1, text: "meal 1 again", image: UIImage(named: "meal1"))]
+            cellData(cell: 1, text: "meal 3", image: UIImage(named: "meal3"))]
         
     }
 
@@ -79,6 +79,31 @@ class TableViewController: UITableViewController {
         else {
             
             return 205
+            
+        }
+
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if arrayOfCellData[indexPath.row].cell == 1{
+            let meal = arrayOfCellData[indexPath.row].text
+            let newVC = storyboard?.instantiateViewControllerWithIdentifier(String(meal))
+            navigationController?.pushViewController(newVC!, animated: true)
+            
+            
+        }
+        else if arrayOfCellData[indexPath.row].cell == 2{
+            let meal = arrayOfCellData[indexPath.row].text
+            let newVC = storyboard?.instantiateViewControllerWithIdentifier(String(meal))
+            navigationController?.pushViewController(newVC!, animated: true)
+            
+            
+        }
+        else {
+            let meal = arrayOfCellData[indexPath.row].text
+            let newVC = storyboard?.instantiateViewControllerWithIdentifier(String(meal))
+            navigationController?.pushViewController(newVC!, animated: true)
+            
             
         }
 
